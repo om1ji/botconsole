@@ -1,2 +1,2 @@
 # botconsole
-A terminal for Telegram Bots control
+A GUI console for Telegram Bots
