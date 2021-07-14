@@ -7,6 +7,10 @@ root = Tk(screenName='TGBot Console')
 root.title('TGBot Console')
 root.geometry('300x150')
 
+def conf_ent(ent, str):
+    return str
+
+
 # "Send" commands
 
 def send_frame():
@@ -17,8 +21,23 @@ def send_frame():
 
 # "Get" commands
 
-def get_commands():
-    Frame(root).pack_forget
+def getMe_frame():
+
+    frame = Frame(root).pack()
+
+    token = Entry(frame, width=50)
+    token_label = Label(frame, text='Token:')
+    label = Label(frame, width=100, height=4, wraplength=280, bd=20)
+
+    def press():
+        label.configure(text=getMe(token.get()))
+    button = Button(frame, width=20, text='getMe', command=press)
+
+    token_label.pack()
+    token.pack()
+    button.pack()
+    
+    label.pack()
 
 # "Group" commands
 
@@ -34,16 +53,6 @@ def commands_commands():
 
 def other_commands():
     Frame(root).pack_forget
-    frame = Frame(root)
-
-    token = Entry(frame, width=50)
-    token.insert(0, 'Token')
-    token.grid(row=0, column=1)
-
-    button = Button(frame, width=20, text='getMe', command=getMe)
-
-    label = Label(frame, width=100, height=4, wraplength=280, bd=20)
-    label['text'] = button
 
 # Menus
 menu = Menu(root)
@@ -56,7 +65,7 @@ send_menu.add_command(label='3')
 send_menu.add_command(label='4')
 
 get_menu = Menu(root)
-get_menu.add_command(label='1')
+get_menu.add_command(label='getMe', command=getMe_frame)
 get_menu.add_command(label='2')
 get_menu.add_command(label='3')
 get_menu.add_command(label='4')
