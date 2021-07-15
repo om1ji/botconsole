@@ -7,13 +7,6 @@ root = Tk(screenName='TGBot Console')
 root.title('TGBot Console')
 root.geometry('300x150')
 
-def reset(frame):
-    frame.reset
-
-def conf_ent(ent, str):
-    return str
-
-
 # "Send" commands
 
 def send_message_frame():
