@@ -7,6 +7,9 @@ root = Tk(screenName='TGBot Console')
 root.title('TGBot Console')
 root.geometry('300x150')
 
+def reset(frame):
+    frame.reset
+
 def conf_ent(ent, str):
     return str
 
@@ -14,7 +17,7 @@ def conf_ent(ent, str):
 # "Send" commands
 
 def send_message_frame():
-    frame = Frame(root)
+    pass
 
 
 # "Get" commands
@@ -58,28 +61,58 @@ menu = Menu(root)
 root.config(menu=menu)
 
 send_menu = Menu(menu)
-send_menu.add_command(label='1', command=send_message_frame)
-send_menu.add_command(label='2')
-send_menu.add_command(label='3')
-send_menu.add_command(label='4')
+send_menu.add_command(label='Message', command=send_message_frame)
+send_menu.add_command(label='Photo')
+send_menu.add_command(label='Audio')
+send_menu.add_command(label='Document')
+send_menu.add_command(label='Video')
+send_menu.add_command(label='Animation')
+send_menu.add_command(label='Voice')
+send_menu.add_command(label='VideoNote')
+send_menu.add_command(label='MediaGroup')
+send_menu.add_command(label='Location')
+send_menu.add_command(label='Venue')
+send_menu.add_command(label='Contact')
+send_menu.add_command(label='Poll')
+send_menu.add_command(label='Dice')
+send_menu.add_command(label='ChatAction')
+
 
 get_menu = Menu(root)
 get_menu.add_command(label='getMe', command=getMe_frame)
-get_menu.add_command(label='2')
-get_menu.add_command(label='3')
-get_menu.add_command(label='4')
+get_menu.add_command(label='UserProfilePhotos')
+get_menu.add_command(label='File')
 
 group_menu = Menu(root)
-group_menu.add_command(label='1')
-group_menu.add_command(label='2')
-group_menu.add_command(label='3')
-group_menu.add_command(label='4')
+group_menu.add_command(label='banChatMember')
+group_menu.add_command(label='unbanChatMember')
+group_menu.add_command(label='restrictChatMember')
+group_menu.add_command(label='promoteChatMember')
+group_menu.add_command(label='setChatAdministrationCustomTitle')
+group_menu.add_command(label='setChatPermissions')
+group_menu.add_command(label='exportChatInviteLink')
+group_menu.add_command(label='createChatInviteLink')
+group_menu.add_command(label='editChatInviteLink')
+group_menu.add_command(label='revokeChatInvoteLink')
+group_menu.add_command(label='setChatPhoto')
+group_menu.add_command(label='deleteChatPhoto')
+group_menu.add_command(label='setChatTitle')
+group_menu.add_command(label='setChatDescription')
+group_menu.add_command(label='pinChatMessage')
+group_menu.add_command(label='unpinChatMessage')
+group_menu.add_command(label='unpinAllChatMessages')
+group_menu.add_command(label='leaveChat')
+group_menu.add_command(label='getChat')
+group_menu.add_command(label='getChatAdministrators')
+group_menu.add_command(label='getChatMemberCount')
+group_menu.add_command(label='getChatMember')
+group_menu.add_command(label='setChatStickerSet')
+group_menu.add_command(label='deleteChatStickerSet')
 
 commands_menu = Menu(root)
-commands_menu.add_command(label='1')
-commands_menu.add_command(label='2')
-commands_menu.add_command(label='3')
-commands_menu.add_command(label='4')
+commands_menu.add_command(label='setMyCommands')
+commands_menu.add_command(label='deleteMyCommands')
+commands_menu.add_command(label='getMyCommands')
 
 other_menu = Menu(root)
 other_menu.add_command(label='1')   
