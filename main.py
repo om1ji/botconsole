@@ -13,31 +13,30 @@ def conf_ent(ent, str):
 
 # "Send" commands
 
-def send_frame():
-    send_frame = Frame(root)
-    button = Button(send_frame, text='Bruh')
-    button.pack()
-    send_frame.pack()
+def send_message_frame():
+    frame = Frame(root)
+
 
 # "Get" commands
 
 def getMe_frame():
 
-    frame = Frame(root).pack()
-
-    token = Entry(frame, width=50)
-    token_label = Label(frame, text='Token:')
-    label = Label(frame, width=100, height=4, wraplength=280, bd=20)
-
-    def press():
-        label.configure(text=getMe(token.get()))
-    button = Button(frame, width=20, text='getMe', command=press)
-
-    token_label.pack()
-    token.pack()
-    button.pack()
+    token_label = Label(root, text='Token:')
+    token = Entry(root, width=40, borderwidth=3)
     
-    label.pack()
+    def press():
+        output_label.configure(text=getMe(token.get()))
+
+    button = Button(root, width=5, text='getMe', command=press)
+    output_label = Label(root, width=34, height=4, wraplength=250, bd=20, background="#FEFEFE", border=10)
+    
+    token_label.grid(row=0, column=0)
+    token.grid(row=0, column=1)
+    button.grid(row=1, column=0, sticky='N')
+    output_label.grid(row=1, column=1)
+    
+
+
 
 # "Group" commands
 
@@ -59,7 +58,7 @@ menu = Menu(root)
 root.config(menu=menu)
 
 send_menu = Menu(menu)
-send_menu.add_command(label='1', command=send_frame)
+send_menu.add_command(label='1', command=send_message_frame)
 send_menu.add_command(label='2')
 send_menu.add_command(label='3')
 send_menu.add_command(label='4')
